@@ -10,19 +10,14 @@ import UIKit
 
 final class NextButton: UIButton {
     
-    init(title: String) {
+    init(title: String? = nil) {
         super.init(frame: CGRect())
         var config = UIButton.Configuration.filled()
+        config.baseBackgroundColor = .systemGray5
         configuration = config
-        setTitle(title, for: .normal)
+        let titleValue = title == nil ? "다음으로" : title
+        setTitle(titleValue, for: .normal)
     }
-    
-//    override init(frame: CGRect) {
-//        super.init(frame: frame)
-//        var config = UIButton.Configuration.filled()
-//        configuration = config
-//    }
-//
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

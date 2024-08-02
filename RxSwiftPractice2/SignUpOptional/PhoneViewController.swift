@@ -14,6 +14,7 @@ import SnapKit
 enum ValidationResult  {
     case idle
     case numberCountLack
+    case numberCountOver
     case withLetters
     case validated
     
@@ -21,6 +22,7 @@ enum ValidationResult  {
         return switch self {
         case .idle: ""
         case .numberCountLack: "최소 10글자 이상으로 설정해주세요"
+        case .numberCountOver: "최대 11글자까지 입력가능합니다"
         case .withLetters: "숫자만 입력해주세요"
         case .validated: "사용가능합니다!"
         }
@@ -33,9 +35,9 @@ final class PhoneViewController: ViewController {
     
     private let phoneTextField = SignUpTextField()
     
-    private let descriptionLabel = DescriptionLabel()
+    private let descriptionLabel = CustomLabel()
     
-    private let nextButton = NextButton(title: "다음으로")
+    private let nextButton = NextButton()
     
     private let defaultPhoneNumber = "010-"
     
@@ -79,7 +81,7 @@ final class PhoneViewController: ViewController {
     private func bind() {
         
         let validation = phoneTextField.rx.text
-            .debounce(.seconds(1), scheduler: MainScheduler.instance) // 실시간 검색시 과호출 방지하는 Operator
+            .debounce(.seconds(1), scheduler: MainScheduler.instance)
             .distinctUntilChanged()
             .map { [weak self] numbers in
             guard let numbers, let defaultNum = self?.defaultPhoneNumber else {
@@ -87,14 +89,16 @@ final class PhoneViewController: ViewController {
             }
             let input = numbers.replacingOccurrences(of: defaultNum, with: "")
                                .replacingOccurrences(of: "-", with: "")
-            print(#function, "input: ", input)
             guard input.filter({ $0.isLetter }).count == 0 else {
-                return ValidationResult.withLetters
+                return .withLetters
             }
-            guard input.count >= 7 && input .count <= 8 else {
-                return ValidationResult.numberCountLack
+            guard input.count >= 7 else {
+                return .numberCountLack
             }
-            return ValidationResult.validated
+            guard input.count <= 8 else {
+                return .numberCountOver
+            }
+            return .validated
         }
     
         validation.bind(with: self) { owner, result in
@@ -102,7 +106,7 @@ final class PhoneViewController: ViewController {
                 return
             }
             switch result {
-            case .withLetters, .numberCountLack, .validated:
+            case .withLetters, .numberCountLack, .numberCountOver, .validated:
                 text = owner.formettingNumbers(text)
             default: text = owner.defaultPhoneNumber
             }
@@ -118,7 +122,7 @@ final class PhoneViewController: ViewController {
             .map{ $0 == .validated }
             .bind(with: self, onNext: { owner, isValid in
                 guard var config = owner.nextButton.configuration else { return }
-                let color: UIColor = isValid ? .systemPink : .black
+                let color: UIColor = isValid ? .black : .lightGray
                 config.baseBackgroundColor = color
                 owner.nextButton.configuration = config
                 owner.nextButton.isEnabled = isValid
@@ -151,8 +155,7 @@ final class PhoneViewController: ViewController {
     }
     
     private func filterLetters(_ input: String) -> String {
-        var phoneNum = self.defaultPhoneNumber
-        let numbers = input.replacingOccurrences(of: phoneNum, with: "")
+        let numbers = input.replacingOccurrences(of: defaultPhoneNumber, with: "")
                            .replacingOccurrences(of: "-", with: "")
         return numbers.filter({ $0.isNumber })
     }

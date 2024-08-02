@@ -19,7 +19,7 @@
 		BC8F1B952C5C7400005D63CB /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8F1B942C5C7400005D63CB /* UIViewController+Extension.swift */; };
 		BC8F1B972C5C7B44005D63CB /* PhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8F1B962C5C7B44005D63CB /* PhoneViewController.swift */; };
 		BC8F1B9B2C5C7C26005D63CB /* SignUpTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8F1B9A2C5C7C26005D63CB /* SignUpTextField.swift */; };
-		BC8F1B9D2C5C7D49005D63CB /* DescriptionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8F1B9C2C5C7D49005D63CB /* DescriptionLabel.swift */; };
+		BC8F1B9D2C5C7D49005D63CB /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8F1B9C2C5C7D49005D63CB /* CustomLabel.swift */; };
 		BC8F1B9F2C5C9A61005D63CB /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8F1B9E2C5C9A61005D63CB /* NextButton.swift */; };
 		BC8F1BA12C5C9E36005D63CB /* BirthDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8F1BA02C5C9E36005D63CB /* BirthDayViewController.swift */; };
 /* End PBXBuildFile section */
@@ -36,7 +36,7 @@
 		BC8F1B942C5C7400005D63CB /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		BC8F1B962C5C7B44005D63CB /* PhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewController.swift; sourceTree = "<group>"; };
 		BC8F1B9A2C5C7C26005D63CB /* SignUpTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTextField.swift; sourceTree = "<group>"; };
-		BC8F1B9C2C5C7D49005D63CB /* DescriptionLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionLabel.swift; sourceTree = "<group>"; };
+		BC8F1B9C2C5C7D49005D63CB /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		BC8F1B9E2C5C9A61005D63CB /* NextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButton.swift; sourceTree = "<group>"; };
 		BC8F1BA02C5C9E36005D63CB /* BirthDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthDayViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -125,7 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				BC8F1B9A2C5C7C26005D63CB /* SignUpTextField.swift */,
-				BC8F1B9C2C5C7D49005D63CB /* DescriptionLabel.swift */,
+				BC8F1B9C2C5C7D49005D63CB /* CustomLabel.swift */,
 				BC8F1B9E2C5C9A61005D63CB /* NextButton.swift */,
 			);
 			path = CustomView;
@@ -217,7 +217,7 @@
 				BC8F1B9F2C5C9A61005D63CB /* NextButton.swift in Sources */,
 				BC8F1B742C5C6E34005D63CB /* AppDelegate.swift in Sources */,
 				BC8F1B972C5C7B44005D63CB /* PhoneViewController.swift in Sources */,
-				BC8F1B9D2C5C7D49005D63CB /* DescriptionLabel.swift in Sources */,
+				BC8F1B9D2C5C7D49005D63CB /* CustomLabel.swift in Sources */,
 				BC8F1B952C5C7400005D63CB /* UIViewController+Extension.swift in Sources */,
 				BC8F1B762C5C6E34005D63CB /* SceneDelegate.swift in Sources */,
 			);

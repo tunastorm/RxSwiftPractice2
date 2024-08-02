@@ -12,21 +12,11 @@ import SnapKit
 
 final class PasswordViewController: ViewController {
     
-    private let passwordTextField = {
-        let label = UITextField()
-        label.borderStyle = .roundedRect
-        return label
-    }()
+    private let passwordTextField = SignUpTextField()
     
-    private let nextButton = {
-        var config = UIButton.Configuration.filled()
-        config.baseBackgroundColor = .black
-        let button = UIButton(configuration: config)
-        button.setTitle("시작하기", for: .normal)
-        return button
-    }()
+    private let nextButton = NextButton()
     
-    private let descriptionLabel = UILabel()
+    private let descriptionLabel = CustomLabel()
     
     private let validText = Observable.just("8자 이상 입력해주세요")
     
@@ -49,7 +39,7 @@ final class PasswordViewController: ViewController {
         passwordTextField.snp.makeConstraints { make in
             make.height.equalTo(50)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
-            make.centerY.equalTo(view.safeAreaLayoutGuide)
+            make.centerY.equalTo(view.safeAreaLayoutGuide).offset(-50)
         }
         descriptionLabel.snp.makeConstraints { make in
             make.height.equalTo(30)
@@ -73,10 +63,7 @@ final class PasswordViewController: ViewController {
             .bind(to: descriptionLabel.rx.text)
             .disposed(by: disposeBag)
         
-        let validation = passwordTextField
-            .rx
-            .text
-            .orEmpty
+        let validation = passwordTextField.rx.text.orEmpty
             .map { $0.count >= 8 }
         
         validation
@@ -87,7 +74,7 @@ final class PasswordViewController: ViewController {
         validation
             .bind(with: self) { owner, value in
                 guard var config = owner.nextButton.configuration else { return }
-                let color: UIColor = value ? .systemPink : .black
+                let color: UIColor = value ? .black : .lightGray
                 config.baseBackgroundColor = color
                 owner.nextButton.configuration = config
             }
@@ -95,7 +82,9 @@ final class PasswordViewController: ViewController {
         
         nextButton.rx.tap
             .bind(with: self) { owner, _ in
-                owner.showAlert(style: .alert, title: "시작하기", message: "위 정보로 시작하시겠습니까?", completionHandler: nil)
+                owner.showAlert(style: .alert, title: "비밀번호 확인", message: "이 비밀번호를 사용하시겠습니까?") { _ in 
+                    owner.navigationController?.pushViewController(PhoneViewController(), animated: true)
+                }
             }
             .disposed(by: disposeBag)
         
