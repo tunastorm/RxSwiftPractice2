@@ -23,7 +23,7 @@ final class BirthDayViewController: ViewController {
     
     private let descriptionLabel = CustomLabel(alignment: .center, fontSize: 18)
     
-    private let pickedDateLabel = CustomLabel(text: "<year>년 <month>월 <day>일", alignment:.center, fontSize: 15)
+    private let pickedDateLabel = CustomLabel(alignment:.center, fontSize: 15)
     
     private let nextButton = NextButton()
     
@@ -77,7 +77,6 @@ final class BirthDayViewController: ViewController {
     
     private func bind() {
         let pickedDate = birthDayPicker.rx.date
-            .debounce(.seconds(1), scheduler: MainScheduler.instance)
             .distinctUntilChanged()
             .map { Calendar.current.dateComponents([.year, .month, .day], from: $0) }
         
@@ -92,16 +91,19 @@ final class BirthDayViewController: ViewController {
             }
             .disposed(by: disposeBag)
         
-       
-        dateSubjects.keys.forEach { key in
-            dateSubjects[key]?
-                .bind(with: self) { owner, value in
-                    let text = owner.pickedDateLabel.text?.replacingOccurrences(of: "<\(key)>", with: String(value))
-                    owner.pickedDateLabel.text = text
-                }
-                .disposed(by: disposeBag)
-        }
+        print(#function, "dateSubjects.values: ", dateSubjects.values)
         
+
+        Observable.zip(dateSubjects.values)
+            .map { "\($0[0])년 \($0[1])월 \($0[2])일"}
+            .bind(to: pickedDateLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        Observable.combineLatest(dateSubjects.values)
+        .map { "\($0[0])년 \($0[1])월 \($0[2])일"}
+        .bind(to: pickedDateLabel.rx.text)
+        .disposed(by: disposeBag)
+
         pickedDate
             .map{ Calendar.current.date(from: $0) }
             .bind(with: self) { owner, startDate in
