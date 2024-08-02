@@ -5,15 +5,19 @@
 //  Created by 유철원 on 8/2/24.
 //
 
-import UIKit
+import RxSwift
 
-class ViewController: UIViewController {
+#if os(iOS)
+    import UIKit
+    typealias OSViewController = UIViewController
+#elseif os(macOS)
+    import Cocoa
+    typealias OSViewController = NSViewController
+#endif
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
-
-
+class ViewController: OSViewController {
+    
+    var disposeBag = DisposeBag()
+    
 }
 
