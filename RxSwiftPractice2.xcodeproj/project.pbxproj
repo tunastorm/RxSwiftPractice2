@@ -22,6 +22,12 @@
 		BC8F1B9D2C5C7D49005D63CB /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8F1B9C2C5C7D49005D63CB /* CustomLabel.swift */; };
 		BC8F1B9F2C5C9A61005D63CB /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8F1B9E2C5C9A61005D63CB /* NextButton.swift */; };
 		BC8F1BA12C5C9E36005D63CB /* BirthDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8F1BA02C5C9E36005D63CB /* BirthDayViewController.swift */; };
+		BC8F1BA42C5CC9CC005D63CB /* ShoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8F1BA32C5CC9CC005D63CB /* ShoppingListViewController.swift */; };
+		BC8F1BA72C5CCA43005D63CB /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8F1BA62C5CCA43005D63CB /* Todo.swift */; };
+		BC8F1BAA2C5CCB92005D63CB /* ShoppingListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8F1BA92C5CCB92005D63CB /* ShoppingListTableViewCell.swift */; };
+		BC8F1BAD2C5CCBC3005D63CB /* ReusableIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8F1BAC2C5CCBC3005D63CB /* ReusableIdentifier.swift */; };
+		BC8F1BB12C5CCC83005D63CB /* ShoppingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8F1BB02C5CCC83005D63CB /* ShoppingListView.swift */; };
+		BC8F1BB42C5FAFEC005D63CB /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = BC8F1BB32C5FAFEC005D63CB /* Then */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +45,11 @@
 		BC8F1B9C2C5C7D49005D63CB /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		BC8F1B9E2C5C9A61005D63CB /* NextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButton.swift; sourceTree = "<group>"; };
 		BC8F1BA02C5C9E36005D63CB /* BirthDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthDayViewController.swift; sourceTree = "<group>"; };
+		BC8F1BA32C5CC9CC005D63CB /* ShoppingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewController.swift; sourceTree = "<group>"; };
+		BC8F1BA62C5CCA43005D63CB /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
+		BC8F1BA92C5CCB92005D63CB /* ShoppingListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListTableViewCell.swift; sourceTree = "<group>"; };
+		BC8F1BAC2C5CCBC3005D63CB /* ReusableIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableIdentifier.swift; sourceTree = "<group>"; };
+		BC8F1BB02C5CCC83005D63CB /* ShoppingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +60,7 @@
 				BC8F1B912C5C6FFE005D63CB /* RxSwift in Frameworks */,
 				BC8F1B8F2C5C6FFE005D63CB /* RxCocoa in Frameworks */,
 				BC8F1B8C2C5C6FE8005D63CB /* SnapKit in Frameworks */,
+				BC8F1BB42C5FAFEC005D63CB /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				BC8F1B922C5C73EE005D63CB /* Common */,
+				BC8F1BA22C5CC9AE005D63CB /* ShoppingList */,
 				BC8F1B872C5C6F09005D63CB /* SignUp */,
 				BC8F1B982C5C7BD3005D63CB /* SignUpOptional */,
 				BC8F1B992C5C7BFD005D63CB /* CustomView */,
@@ -99,6 +112,7 @@
 		BC8F1B922C5C73EE005D63CB /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				BC8F1BAB2C5CCBB4005D63CB /* protocol */,
 				BC8F1B932C5C73F3005D63CB /* Extension */,
 			);
 			path = Common;
@@ -131,6 +145,41 @@
 			path = CustomView;
 			sourceTree = "<group>";
 		};
+		BC8F1BA22C5CC9AE005D63CB /* ShoppingList */ = {
+			isa = PBXGroup;
+			children = (
+				BC8F1BA52C5CCA3C005D63CB /* Model */,
+				BC8F1BA82C5CCB78005D63CB /* View */,
+			);
+			path = ShoppingList;
+			sourceTree = "<group>";
+		};
+		BC8F1BA52C5CCA3C005D63CB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BC8F1BA62C5CCA43005D63CB /* Todo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BC8F1BA82C5CCB78005D63CB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BC8F1BA32C5CC9CC005D63CB /* ShoppingListViewController.swift */,
+				BC8F1BA92C5CCB92005D63CB /* ShoppingListTableViewCell.swift */,
+				BC8F1BB02C5CCC83005D63CB /* ShoppingListView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BC8F1BAB2C5CCBB4005D63CB /* protocol */ = {
+			isa = PBXGroup;
+			children = (
+				BC8F1BAC2C5CCBC3005D63CB /* ReusableIdentifier.swift */,
+			);
+			path = protocol;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -151,6 +200,7 @@
 				BC8F1B8B2C5C6FE8005D63CB /* SnapKit */,
 				BC8F1B8E2C5C6FFE005D63CB /* RxCocoa */,
 				BC8F1B902C5C6FFE005D63CB /* RxSwift */,
+				BC8F1BB32C5FAFEC005D63CB /* Then */,
 			);
 			productName = RxSwiftPractice2;
 			productReference = BC8F1B702C5C6E34005D63CB /* RxSwiftPractice2.app */;
@@ -183,6 +233,7 @@
 			packageReferences = (
 				BC8F1B8A2C5C6FE8005D63CB /* XCRemoteSwiftPackageReference "SnapKit" */,
 				BC8F1B8D2C5C6FFE005D63CB /* XCRemoteSwiftPackageReference "RxSwift" */,
+				BC8F1BB22C5FAFEC005D63CB /* XCRemoteSwiftPackageReference "Then" */,
 			);
 			productRefGroup = BC8F1B712C5C6E34005D63CB /* Products */;
 			projectDirPath = "";
@@ -210,12 +261,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC8F1BB12C5CCC83005D63CB /* ShoppingListView.swift in Sources */,
 				BC8F1B782C5C6E34005D63CB /* ViewController.swift in Sources */,
+				BC8F1BA42C5CC9CC005D63CB /* ShoppingListViewController.swift in Sources */,
 				BC8F1B892C5C6FCF005D63CB /* PasswordViewController.swift in Sources */,
+				BC8F1BAA2C5CCB92005D63CB /* ShoppingListTableViewCell.swift in Sources */,
 				BC8F1B9B2C5C7C26005D63CB /* SignUpTextField.swift in Sources */,
 				BC8F1BA12C5C9E36005D63CB /* BirthDayViewController.swift in Sources */,
 				BC8F1B9F2C5C9A61005D63CB /* NextButton.swift in Sources */,
+				BC8F1BAD2C5CCBC3005D63CB /* ReusableIdentifier.swift in Sources */,
 				BC8F1B742C5C6E34005D63CB /* AppDelegate.swift in Sources */,
+				BC8F1BA72C5CCA43005D63CB /* Todo.swift in Sources */,
 				BC8F1B972C5C7B44005D63CB /* PhoneViewController.swift in Sources */,
 				BC8F1B9D2C5C7D49005D63CB /* CustomLabel.swift in Sources */,
 				BC8F1B952C5C7400005D63CB /* UIViewController+Extension.swift in Sources */,
@@ -458,6 +514,14 @@
 				minimumVersion = 6.7.1;
 			};
 		};
+		BC8F1BB22C5FAFEC005D63CB /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -475,6 +539,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BC8F1B8D2C5C6FFE005D63CB /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
+		};
+		BC8F1BB32C5FAFEC005D63CB /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BC8F1BB22C5FAFEC005D63CB /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

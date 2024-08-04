@@ -91,17 +91,10 @@ final class BirthDayViewController: ViewController {
             }
             .disposed(by: disposeBag)
         
-        print(#function, "dateSubjects.values: ", dateSubjects.values)
-
-//        Observable.zip(dateSubjects.values) -> 반환된 배열에 담긴 값들의 순서가 보장되지 않음. 왜지.
-//            .map { "\($0[0])년 \($0[1])월 \($0[2])일"}
-//            .bind(to: pickedDateLabel.rx.text)
-//            .disposed(by: disposeBag)
-        
         Observable.combineLatest(dateSubjects.sorted{ $0.key > $1.key }.map{ $0.value })
-        .map { "\($0[0])년 \($0[1])월 \($0[2])일"}
-        .bind(to: pickedDateLabel.rx.text)
-        .disposed(by: disposeBag)
+            .map { "\($0[0])년 \($0[1])월 \($0[2])일"}
+            .bind(to: pickedDateLabel.rx.text)
+            .disposed(by: disposeBag)
 
         pickedDate
             .map{ Calendar.current.date(from: $0) }
