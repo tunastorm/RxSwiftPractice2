@@ -6,12 +6,20 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 import SnapKit
 import Then
 
 final class ShoppingListTableViewCell: UICollectionViewCell {
     
-    private var checkImageView = UIImageView().then {
+    var delegate: ShoppingListTableViewCellDelegate?
+    
+    var disposeBag = DisposeBag()
+    
+    private var checkImageView = UIButton().then {
+        $0.titleLabel?.font = .systemFont(ofSize: 0)
+        $0.clipsToBounds = true
         $0.tintColor = .black
     }
     
@@ -19,7 +27,9 @@ final class ShoppingListTableViewCell: UICollectionViewCell {
         $0.font = .systemFont(ofSize: 12)
     }
     
-    private var starImageView = UIImageView().then {
+    private var starImageView = UIButton().then {
+        $0.titleLabel?.font = .systemFont(ofSize: 0)
+        $0.clipsToBounds = true
         $0.tintColor = .black
     }
     
@@ -28,6 +38,7 @@ final class ShoppingListTableViewCell: UICollectionViewCell {
         configureHierarchy()
         configureLayout()
         configureView()
+        bind()
     }
     
     required init?(coder: NSCoder) {
@@ -39,10 +50,15 @@ final class ShoppingListTableViewCell: UICollectionViewCell {
         layer.cornerRadius = frame.height / 5
     }
     
+//    override func prepareForReuse() {
+//       super.prepareForReuse()
+//       disposeBag = DisposeBag()
+//   }
+    
     private func configureHierarchy() {
-        addSubview(checkImageView)
-        addSubview(title)
-        addSubview(starImageView)
+        contentView.addSubview(checkImageView)
+        contentView.addSubview(title)
+        contentView.addSubview(starImageView)
     }
     
     private func configureLayout() {
@@ -52,6 +68,7 @@ final class ShoppingListTableViewCell: UICollectionViewCell {
             make.leading.equalTo(20)
         }
         title.snp.makeConstraints { make in
+            make.height.equalTo(20)
             make.leading.equalTo(checkImageView.snp.trailing).offset(10)
             make.centerY.equalToSuperview()
         }
@@ -68,12 +85,28 @@ final class ShoppingListTableViewCell: UICollectionViewCell {
         layer.masksToBounds = true
     }
     
-    func configureCell(data: Todo) {
+    func bind() {
+        checkImageView.rx.tap
+            .bind(with: self) { owner, _ in
+                print(#function,"checkButton 클릭됨")
+                owner.delegate?.checkButtonToggle(row: owner.contentView.tag)
+            }
+            .disposed(by: disposeBag)
+        starImageView.rx.tap
+            .bind(with: self) { owner, _ in
+                print(#function,"starButton 클릭됨")
+                owner.delegate?.starButtonToggle(row: owner.contentView.tag)
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    func configureCell(_ row: Int, data: Todo) {
+        contentView.tag = row
         let checkImage = data.isCompleted ? "checkmark.square.fill" : "checkmark.square"
         let starImage = data.isStared ? "star.fill" : "star"
-        checkImageView.image = UIImage(systemName: checkImage)
+        checkImageView.setImage(UIImage(systemName: checkImage), for: .normal)
         title.text = data.title
-        starImageView.image = UIImage(systemName: starImage)
+        starImageView.setImage(UIImage(systemName: starImage), for: .normal)
         layoutIfNeeded()
     }
     

@@ -43,7 +43,7 @@ final class ShoppingListView: UIView {
         let horizontalCount = CGFloat(1)
         let verticalCount = CGFloat(10)
         let lineSpacing = CGFloat(10)
-        let itemSpacing = CGFloat(10)
+        let itemSpacing = CGFloat(0)
         let inset = CGFloat(20)
         
         let width = UIScreen.main.bounds.width - (inset * 2) - (itemSpacing * horizontalCount-1)
@@ -117,6 +117,13 @@ final class ShoppingListView: UIView {
                     return
                 }
                 owner.delegate?.addItem(title: title)
+            }
+            .disposed(by: disposeBag)
+        appendTextFied.rx.text
+            .debounce(.seconds(1), scheduler: MainScheduler.instance)
+            .distinctUntilChanged()
+            .bind(with: self) { owner, value in
+                owner.delegate?.searchItems(keyword: value)
             }
             .disposed(by: disposeBag)
     }

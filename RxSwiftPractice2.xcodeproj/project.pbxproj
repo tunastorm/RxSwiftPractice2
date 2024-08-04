@@ -28,6 +28,8 @@
 		BC8F1BAD2C5CCBC3005D63CB /* ReusableIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8F1BAC2C5CCBC3005D63CB /* ReusableIdentifier.swift */; };
 		BC8F1BB12C5CCC83005D63CB /* ShoppingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8F1BB02C5CCC83005D63CB /* ShoppingListView.swift */; };
 		BC8F1BB42C5FAFEC005D63CB /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = BC8F1BB32C5FAFEC005D63CB /* Then */; };
+		BC8F1BB62C5FCA83005D63CB /* ShoppingListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8F1BB52C5FCA83005D63CB /* ShoppingListDetailViewController.swift */; };
+		BC8F1BB92C5FD1BC005D63CB /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BC8F1BB82C5FD1BC005D63CB /* IQKeyboardManagerSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,7 @@
 		BC8F1BA92C5CCB92005D63CB /* ShoppingListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListTableViewCell.swift; sourceTree = "<group>"; };
 		BC8F1BAC2C5CCBC3005D63CB /* ReusableIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableIdentifier.swift; sourceTree = "<group>"; };
 		BC8F1BB02C5CCC83005D63CB /* ShoppingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListView.swift; sourceTree = "<group>"; };
+		BC8F1BB52C5FCA83005D63CB /* ShoppingListDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC8F1BB92C5FD1BC005D63CB /* IQKeyboardManagerSwift in Frameworks */,
 				BC8F1B912C5C6FFE005D63CB /* RxSwift in Frameworks */,
 				BC8F1B8F2C5C6FFE005D63CB /* RxCocoa in Frameworks */,
 				BC8F1B8C2C5C6FE8005D63CB /* SnapKit in Frameworks */,
@@ -168,6 +172,7 @@
 				BC8F1BA32C5CC9CC005D63CB /* ShoppingListViewController.swift */,
 				BC8F1BA92C5CCB92005D63CB /* ShoppingListTableViewCell.swift */,
 				BC8F1BB02C5CCC83005D63CB /* ShoppingListView.swift */,
+				BC8F1BB52C5FCA83005D63CB /* ShoppingListDetailViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -201,6 +206,7 @@
 				BC8F1B8E2C5C6FFE005D63CB /* RxCocoa */,
 				BC8F1B902C5C6FFE005D63CB /* RxSwift */,
 				BC8F1BB32C5FAFEC005D63CB /* Then */,
+				BC8F1BB82C5FD1BC005D63CB /* IQKeyboardManagerSwift */,
 			);
 			productName = RxSwiftPractice2;
 			productReference = BC8F1B702C5C6E34005D63CB /* RxSwiftPractice2.app */;
@@ -234,6 +240,7 @@
 				BC8F1B8A2C5C6FE8005D63CB /* XCRemoteSwiftPackageReference "SnapKit" */,
 				BC8F1B8D2C5C6FFE005D63CB /* XCRemoteSwiftPackageReference "RxSwift" */,
 				BC8F1BB22C5FAFEC005D63CB /* XCRemoteSwiftPackageReference "Then" */,
+				BC8F1BB72C5FD1BC005D63CB /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = BC8F1B712C5C6E34005D63CB /* Products */;
 			projectDirPath = "";
@@ -268,6 +275,7 @@
 				BC8F1BAA2C5CCB92005D63CB /* ShoppingListTableViewCell.swift in Sources */,
 				BC8F1B9B2C5C7C26005D63CB /* SignUpTextField.swift in Sources */,
 				BC8F1BA12C5C9E36005D63CB /* BirthDayViewController.swift in Sources */,
+				BC8F1BB62C5FCA83005D63CB /* ShoppingListDetailViewController.swift in Sources */,
 				BC8F1B9F2C5C9A61005D63CB /* NextButton.swift in Sources */,
 				BC8F1BAD2C5CCBC3005D63CB /* ReusableIdentifier.swift in Sources */,
 				BC8F1B742C5C6E34005D63CB /* AppDelegate.swift in Sources */,
@@ -419,6 +427,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F8FT97JYZT;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RxSwiftPractice2/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -450,6 +459,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F8FT97JYZT;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RxSwiftPractice2/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -522,6 +532,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		BC8F1BB72C5FD1BC005D63CB /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.1.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -544,6 +562,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BC8F1BB22C5FAFEC005D63CB /* XCRemoteSwiftPackageReference "Then" */;
 			productName = Then;
+		};
+		BC8F1BB82C5FD1BC005D63CB /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BC8F1BB72C5FD1BC005D63CB /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

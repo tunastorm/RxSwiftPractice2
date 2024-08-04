@@ -14,7 +14,7 @@ struct Todo: Hashable {
     var title: String
 }
 
-let dummyTodoList: [Todo] = [
+var dummyData: [Todo] = [
     Todo(isCompleted: true, isStared: true, title: "그립톡 구매하기"),
     Todo(isCompleted: false, isStared: false, title: "사이다 구매하기"),
     Todo(isCompleted: false, isStared: true, title: "아이패드 케이스 최저가 알아보기"),
