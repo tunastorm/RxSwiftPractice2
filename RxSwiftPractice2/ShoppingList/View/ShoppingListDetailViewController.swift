@@ -81,7 +81,10 @@ final class ShoppingListDetailViewController: ViewController {
             .debounce(.seconds(1), scheduler: MainScheduler.instance)
             .distinctUntilChanged()
             .bind(with: self) { owner, value in
-                guard let value, let todo = owner.todo, let updateHandler = owner.updateHandler else { return }
+                guard let value, value.replacingOccurrences(of: " ", with: "") != "" else {
+                    return
+                }
+                guard let todo = owner.todo, let updateHandler = owner.updateHandler else { return }
                 var index: Int?
                 for (idx, data) in dummyData.enumerated() {
                     if data.id == todo.id {
