@@ -30,6 +30,8 @@
 		BC8F1BB42C5FAFEC005D63CB /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = BC8F1BB32C5FAFEC005D63CB /* Then */; };
 		BC8F1BB62C5FCA83005D63CB /* ShoppingListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8F1BB52C5FCA83005D63CB /* ShoppingListDetailViewController.swift */; };
 		BC8F1BB92C5FD1BC005D63CB /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BC8F1BB82C5FD1BC005D63CB /* IQKeyboardManagerSwift */; };
+		BC8F1BBF2C60EC43005D63CB /* PasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8F1BBE2C60EC43005D63CB /* PasswordViewModel.swift */; };
+		BC8F1BC52C60F009005D63CB /* PhoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8F1BC42C60F009005D63CB /* PhoneViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +55,8 @@
 		BC8F1BAC2C5CCBC3005D63CB /* ReusableIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableIdentifier.swift; sourceTree = "<group>"; };
 		BC8F1BB02C5CCC83005D63CB /* ShoppingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListView.swift; sourceTree = "<group>"; };
 		BC8F1BB52C5FCA83005D63CB /* ShoppingListDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListDetailViewController.swift; sourceTree = "<group>"; };
+		BC8F1BBE2C60EC43005D63CB /* PasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewModel.swift; sourceTree = "<group>"; };
+		BC8F1BC42C60F009005D63CB /* PhoneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +112,8 @@
 		BC8F1B872C5C6F09005D63CB /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				BC8F1B882C5C6FCF005D63CB /* PasswordViewController.swift */,
+				BC8F1BC12C60EFD1005D63CB /* View */,
+				BC8F1BC02C60EFC7005D63CB /* ViewModel */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -133,8 +138,8 @@
 		BC8F1B982C5C7BD3005D63CB /* SignUpOptional */ = {
 			isa = PBXGroup;
 			children = (
-				BC8F1B962C5C7B44005D63CB /* PhoneViewController.swift */,
-				BC8F1BA02C5C9E36005D63CB /* BirthDayViewController.swift */,
+				BC8F1BC22C60EFDB005D63CB /* View */,
+				BC8F1BC32C60EFE7005D63CB /* ViewModel */,
 			);
 			path = SignUpOptional;
 			sourceTree = "<group>";
@@ -183,6 +188,39 @@
 				BC8F1BAC2C5CCBC3005D63CB /* ReusableIdentifier.swift */,
 			);
 			path = protocol;
+			sourceTree = "<group>";
+		};
+		BC8F1BC02C60EFC7005D63CB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BC8F1BBE2C60EC43005D63CB /* PasswordViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BC8F1BC12C60EFD1005D63CB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BC8F1B882C5C6FCF005D63CB /* PasswordViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BC8F1BC22C60EFDB005D63CB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BC8F1B962C5C7B44005D63CB /* PhoneViewController.swift */,
+				BC8F1BA02C5C9E36005D63CB /* BirthDayViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BC8F1BC32C60EFE7005D63CB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BC8F1BC42C60F009005D63CB /* PhoneViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,11 +315,13 @@
 				BC8F1BA12C5C9E36005D63CB /* BirthDayViewController.swift in Sources */,
 				BC8F1BB62C5FCA83005D63CB /* ShoppingListDetailViewController.swift in Sources */,
 				BC8F1B9F2C5C9A61005D63CB /* NextButton.swift in Sources */,
+				BC8F1BC52C60F009005D63CB /* PhoneViewModel.swift in Sources */,
 				BC8F1BAD2C5CCBC3005D63CB /* ReusableIdentifier.swift in Sources */,
 				BC8F1B742C5C6E34005D63CB /* AppDelegate.swift in Sources */,
 				BC8F1BA72C5CCA43005D63CB /* Todo.swift in Sources */,
 				BC8F1B972C5C7B44005D63CB /* PhoneViewController.swift in Sources */,
 				BC8F1B9D2C5C7D49005D63CB /* CustomLabel.swift in Sources */,
+				BC8F1BBF2C60EC43005D63CB /* PasswordViewModel.swift in Sources */,
 				BC8F1B952C5C7400005D63CB /* UIViewController+Extension.swift in Sources */,
 				BC8F1B762C5C6E34005D63CB /* SceneDelegate.swift in Sources */,
 			);
