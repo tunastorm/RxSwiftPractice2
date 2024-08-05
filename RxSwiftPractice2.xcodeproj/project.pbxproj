@@ -32,6 +32,7 @@
 		BC8F1BB92C5FD1BC005D63CB /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BC8F1BB82C5FD1BC005D63CB /* IQKeyboardManagerSwift */; };
 		BC8F1BBF2C60EC43005D63CB /* PasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8F1BBE2C60EC43005D63CB /* PasswordViewModel.swift */; };
 		BC8F1BC52C60F009005D63CB /* PhoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8F1BC42C60F009005D63CB /* PhoneViewModel.swift */; };
+		BC8F1BC72C60FC4B005D63CB /* BirthdayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8F1BC62C60FC4B005D63CB /* BirthdayViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		BC8F1BB52C5FCA83005D63CB /* ShoppingListDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListDetailViewController.swift; sourceTree = "<group>"; };
 		BC8F1BBE2C60EC43005D63CB /* PasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewModel.swift; sourceTree = "<group>"; };
 		BC8F1BC42C60F009005D63CB /* PhoneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewModel.swift; sourceTree = "<group>"; };
+		BC8F1BC62C60FC4B005D63CB /* BirthdayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				BC8F1BC42C60F009005D63CB /* PhoneViewModel.swift */,
+				BC8F1BC62C60FC4B005D63CB /* BirthdayViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				BC8F1B9F2C5C9A61005D63CB /* NextButton.swift in Sources */,
 				BC8F1BC52C60F009005D63CB /* PhoneViewModel.swift in Sources */,
 				BC8F1BAD2C5CCBC3005D63CB /* ReusableIdentifier.swift in Sources */,
+				BC8F1BC72C60FC4B005D63CB /* BirthdayViewModel.swift in Sources */,
 				BC8F1B742C5C6E34005D63CB /* AppDelegate.swift in Sources */,
 				BC8F1BA72C5CCA43005D63CB /* Todo.swift in Sources */,
 				BC8F1B972C5C7B44005D63CB /* PhoneViewController.swift in Sources */,

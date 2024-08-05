@@ -30,6 +30,8 @@ enum ValidationResult  {
 
 final class PhoneViewModel {
     
+    private var disposeBag = DisposeBag()
+    
     private let defaultPhoneNumber = "010-"
     
     struct Input {
@@ -58,7 +60,6 @@ final class PhoneViewModel {
                 }
                 let input = numbers.replacingOccurrences(of: defaultPhoneNumber, with: "")
                                .replacingOccurrences(of: "-", with: "")
-                print(#function, "input: ", input)
                 guard input.filter({ $0.isLetter }).count == 0 else {
                     inputPhonNumber = input
                     return .withLetters
@@ -106,7 +107,6 @@ final class PhoneViewModel {
             let third = numbers.suffix(thirdSuffix)
             phoneNum += "-\(third)"
         }
-        print(#function, phoneNum)
         return phoneNum
     }
     
