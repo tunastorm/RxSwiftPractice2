@@ -99,5 +99,6 @@ final class ShoppingListDetailViewController: ViewController {
             }
             .disposed(by: disposeBag)
     }
+    
 }
 

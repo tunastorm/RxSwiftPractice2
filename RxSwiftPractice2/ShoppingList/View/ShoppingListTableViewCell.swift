@@ -50,11 +50,6 @@ final class ShoppingListTableViewCell: UICollectionViewCell {
         layer.cornerRadius = frame.height / 5
     }
     
-//    override func prepareForReuse() {
-//       super.prepareForReuse()
-//       disposeBag = DisposeBag()
-//   }
-    
     private func configureHierarchy() {
         contentView.addSubview(checkImageView)
         contentView.addSubview(title)

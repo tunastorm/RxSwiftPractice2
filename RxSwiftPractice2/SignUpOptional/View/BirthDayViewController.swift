@@ -90,7 +90,10 @@ final class BirthDayViewController: ViewController {
         
         output.nextTap
             .bind(with: self) { owner, _ in
-                owner.showAlert(style: .alert, title: "가입완료", message: "지금까지 설정한 정보로 가입하시겠습니까?", completionHandler: nil)
+                owner.showAlert(style: .alert, title: "가입완료", message: "지금까지 설정한 정보로 가입하시겠습니까?") { _ in
+                    let vc = ShoppingListViewController()
+                    owner.navigationController?.pushViewController(vc, animated: true)
+                }
             }
             .disposed(by: disposeBag)
     }

@@ -16,6 +16,8 @@ final class ShoppingListView: UIView {
     var disposeBag = DisposeBag()
     
     var delegate: ShoppingListViewDelegate?
+    
+    private let viewModel = ShoppingListViewViewModel()
 
     private let appendView = UIView().then {
         $0.layer.masksToBounds = true
@@ -111,21 +113,18 @@ final class ShoppingListView: UIView {
     }
     
     private func bind() {
-        appendButton.rx.tap
-            .bind(with: self) { owner, _ in
-                guard let title = owner.appendTextFied.text else {
-                    return
-                }
-                owner.delegate?.addItem(title: title)
-            }
-            .disposed(by: disposeBag)
-        appendTextFied.rx.text
-            .debounce(.seconds(1), scheduler: MainScheduler.instance)
-            .distinctUntilChanged()
-            .bind(with: self) { owner, value in
-                owner.delegate?.searchItems(keyword: value)
-            }
-            .disposed(by: disposeBag)
+        let input = ShoppingListViewViewModel.Input(appendTap: appendButton.rx.tap, title: appendTextFied.rx.text, searchKeyword: appendTextFied.rx.text)
+        let output = viewModel.transform(input: input)
+        
+        if let appendList = output.appendList {
+            delegate?.fetchTodoListFromView(list: appendList)
+        }
+    
+        output.searchedList
+            .drive(with: self) { owner, list in
+            owner.delegate?.fetchTodoListFromView(list: list)
+        }
+        .disposed(by: disposeBag)
     }
     
 }
