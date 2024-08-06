@@ -16,6 +16,8 @@ final class ShoppingListDetailViewController: ViewController {
     var todo: Todo?
     var updateHandler: (() -> Void)?
     
+    private var viewModel = ShoppingListDetailViewModel()
+    
     private var titleTextField = UITextField().then {
         $0.textAlignment = .center
     }
@@ -30,17 +32,27 @@ final class ShoppingListDetailViewController: ViewController {
         $0.tintColor = .black
     }
     
+    private var deleteButton = UIButton().then {
+        $0.setTitle("삭제", for: .normal)
+        $0.configuration = .filled()
+        $0.configuration?.cornerStyle = .medium
+        $0.configuration?.baseBackgroundColor = .black
+        $0.configuration?.baseForegroundColor = .white
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureHierarchy()
         configureLayout()
         configureView()
+        bind()
     }
     
     private func configureHierarchy() {
         view.addSubview(titleTextField)
         view.addSubview(isCompleted)
         view.addSubview(isStared)
+        view.addSubview(deleteButton)
     }
     
     private func configureLayout() {
@@ -61,11 +73,17 @@ final class ShoppingListDetailViewController: ViewController {
             make.top.equalTo(isCompleted.snp.bottom).offset(20)
             make.centerX.equalTo(view.safeAreaLayoutGuide)
         }
+        deleteButton.snp.makeConstraints { make in
+            make.height.equalTo(40)
+            make.width.equalTo(100)
+            make.top.equalTo(isStared.snp.bottom).offset(20)
+            make.centerX.equalTo(view.safeAreaLayoutGuide)
+        }
+        
     }
     
     private func configureView() {
         view.backgroundColor = .white
-        bind()
         guard let todo else { return }
         titleTextField.text = todo.title
         let completeInfo = todo.isCompleted ? ("완료", "checkmark.square.fill") : ("진행중", "checkmark.square")
@@ -77,27 +95,26 @@ final class ShoppingListDetailViewController: ViewController {
     }
     
     private func bind() {
-        titleTextField.rx.text
-            .debounce(.seconds(1), scheduler: MainScheduler.instance)
-            .distinctUntilChanged()
-            .bind(with: self) { owner, value in
-                guard let value, value.replacingOccurrences(of: " ", with: "") != "" else {
-                    return
-                }
+        guard let todo else { return }
+        let observableTodo = Observable.just(todo)
+        let input = ShoppingListDetailViewModel.Input(title: titleTextField.rx.text, todo: observableTodo, deleteTap: deleteButton.rx.tap)
+        let output = viewModel.transform(input: input)
+       
+        output.title
+            .bind(with: self) { owner, _ in
                 guard let todo = owner.todo, let updateHandler = owner.updateHandler else { return }
-                var index: Int?
-                for (idx, data) in dummyData.enumerated() {
-                    if data.id == todo.id {
-                        index = idx
-                        break
-                    }
-                }
-                guard let index else { return }
-                dummyData[index].title = value
                 updateHandler()
-                print(#function, " dummyData[index]: ",  dummyData[index])
             }
             .disposed(by: disposeBag)
+        
+        output.isDeleted
+            .bind(with: self) { owner, isDeleted in
+                guard isDeleted, let updateHandler = owner.updateHandler else { return }
+                updateHandler()
+                owner.navigationController?.popViewController(animated: true)
+            }
+            .disposed(by: disposeBag)
+        
     }
     
 }

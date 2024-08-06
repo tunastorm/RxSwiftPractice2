@@ -35,6 +35,8 @@
 		BC8F1BC72C60FC4B005D63CB /* BirthdayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8F1BC62C60FC4B005D63CB /* BirthdayViewModel.swift */; };
 		BC8F1BCA2C6105E3005D63CB /* ShoppingListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8F1BC92C6105E3005D63CB /* ShoppingListViewModel.swift */; };
 		BC8F1BCC2C6110AF005D63CB /* ShoppingListViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8F1BCB2C6110AF005D63CB /* ShoppingListViewViewModel.swift */; };
+		BC8F1BCE2C6248F0005D63CB /* ShoppingListTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8F1BCD2C6248F0005D63CB /* ShoppingListTableViewCellViewModel.swift */; };
+		BC8F1BD02C624CBA005D63CB /* ShoppingListDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8F1BCF2C624CBA005D63CB /* ShoppingListDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +65,8 @@
 		BC8F1BC62C60FC4B005D63CB /* BirthdayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayViewModel.swift; sourceTree = "<group>"; };
 		BC8F1BC92C6105E3005D63CB /* ShoppingListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewModel.swift; sourceTree = "<group>"; };
 		BC8F1BCB2C6110AF005D63CB /* ShoppingListViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewViewModel.swift; sourceTree = "<group>"; };
+		BC8F1BCD2C6248F0005D63CB /* ShoppingListTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		BC8F1BCF2C624CBA005D63CB /* ShoppingListDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListDetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,6 +240,8 @@
 			children = (
 				BC8F1BC92C6105E3005D63CB /* ShoppingListViewModel.swift */,
 				BC8F1BCB2C6110AF005D63CB /* ShoppingListViewViewModel.swift */,
+				BC8F1BCD2C6248F0005D63CB /* ShoppingListTableViewCellViewModel.swift */,
+				BC8F1BCF2C624CBA005D63CB /* ShoppingListDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -329,6 +335,8 @@
 				BC8F1B892C5C6FCF005D63CB /* PasswordViewController.swift in Sources */,
 				BC8F1BAA2C5CCB92005D63CB /* ShoppingListTableViewCell.swift in Sources */,
 				BC8F1B9B2C5C7C26005D63CB /* SignUpTextField.swift in Sources */,
+				BC8F1BD02C624CBA005D63CB /* ShoppingListDetailViewModel.swift in Sources */,
+				BC8F1BCE2C6248F0005D63CB /* ShoppingListTableViewCellViewModel.swift in Sources */,
 				BC8F1BA12C5C9E36005D63CB /* BirthDayViewController.swift in Sources */,
 				BC8F1BB62C5FCA83005D63CB /* ShoppingListDetailViewController.swift in Sources */,
 				BC8F1BCC2C6110AF005D63CB /* ShoppingListViewViewModel.swift in Sources */,
