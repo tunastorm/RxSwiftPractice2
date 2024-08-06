@@ -15,7 +15,9 @@ final class ShoppingListTableViewCell: UICollectionViewCell {
     
     var delegate: ShoppingListTableViewCellDelegate?
     
-    var disposeBag = DisposeBag()
+    private var disposeBag = DisposeBag()
+    
+    private var viewModel = ShoppingListTableViewCellViewModel()
     
     private var checkImageView = UIButton().then {
         $0.titleLabel?.font = .systemFont(ofSize: 0)
@@ -81,15 +83,17 @@ final class ShoppingListTableViewCell: UICollectionViewCell {
     }
     
     func bind() {
-        checkImageView.rx.tap
+        let input = ShoppingListTableViewCellViewModel.Input(checkImageTap: checkImageView.rx.tap, starImageTap: starImageView.rx.tap)
+        let output = viewModel.transform(input: input)
+        
+        output.checkImageTap
             .bind(with: self) { owner, _ in
-                print(#function,"checkButton 클릭됨")
                 owner.delegate?.checkButtonToggle(row: owner.contentView.tag)
             }
             .disposed(by: disposeBag)
-        starImageView.rx.tap
+        
+        output.starImageTap
             .bind(with: self) { owner, _ in
-                print(#function,"starButton 클릭됨")
                 owner.delegate?.starButtonToggle(row: owner.contentView.tag)
             }
             .disposed(by: disposeBag)

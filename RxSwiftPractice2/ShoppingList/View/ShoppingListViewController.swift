@@ -98,7 +98,6 @@ extension ShoppingListViewController: ShoppingListTableViewCellDelegate {
     }
     
     func starButtonToggle(row: Int) {
-        print(#function, "row: ", row)
         do {
             var newValue = try output?.todoList.value()
             newValue?[row].isStared.toggle()
