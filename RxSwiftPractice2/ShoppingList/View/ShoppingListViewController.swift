@@ -20,6 +20,10 @@ protocol ShoppingListTableViewCellDelegate {
     func updateTitle(_ row: Int, title: String)
 }
 
+protocol ShoppingListCollectionViewCellDelegate {
+    func fetchTodoListFromView(list: [Todo])
+}
+
 
 final class ShoppingListViewController: ViewController {
 
@@ -39,6 +43,7 @@ final class ShoppingListViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         rootView.delegate = self
+//        rootView.horizontalView.delegate = self
         bind()
     }
     
@@ -47,6 +52,15 @@ final class ShoppingListViewController: ViewController {
         output = viewModel.transform(input: input)
         
         guard let input, let output else { return }
+        
+        output.buttonList
+            .debug("콜렉션뷰 버튼 초기화")
+            .bind(to: rootView.horizontalView.rx.items(cellIdentifier: ShoppingListCollectionViewCell.identifier, cellType: ShoppingListCollectionViewCell.self)) {
+                row, element, cell in
+                cell.delegate = self
+                cell.configureCell(data: element)
+            }
+            .disposed(by: disposeBag)
         
         output.todoList
             .bind(to: rootView.tableView.rx.items(cellIdentifier: ShoppingListTableViewCell.identifier, cellType: ShoppingListTableViewCell.self)) { [weak self] row, element, cell in
@@ -66,15 +80,27 @@ final class ShoppingListViewController: ViewController {
         
     }
     
-}
-
-extension ShoppingListViewController: ShoppingListViewDelegate {
-    
     func fetchTodoListFromView(list: [Todo]) {
         output?.todoList.onNext(list)
     }
     
 }
+
+//extension ShoppingListViewController: UICollectionViewDelegateFlowLayout {
+//    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        guard let cell = rootView.horizontalView.dequeueReusableCell(withReuseIdentifier: ShoppingListCollectionViewCell.identifier, for: indexPath) as? ShoppingListCollectionViewCell else {
+//            return CGSize()
+//        }
+//        return cell.adjustCellSize(height: 40)
+//    }
+//}
+
+
+
+extension ShoppingListViewController: ShoppingListViewDelegate { }
+
+extension ShoppingListViewController: ShoppingListCollectionViewCellDelegate { }
 
 extension ShoppingListViewController: ShoppingListTableViewCellDelegate {
     

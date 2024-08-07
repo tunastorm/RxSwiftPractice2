@@ -37,6 +37,8 @@
 		BC8F1BCC2C6110AF005D63CB /* ShoppingListViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8F1BCB2C6110AF005D63CB /* ShoppingListViewViewModel.swift */; };
 		BC8F1BCE2C6248F0005D63CB /* ShoppingListTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8F1BCD2C6248F0005D63CB /* ShoppingListTableViewCellViewModel.swift */; };
 		BC8F1BD02C624CBA005D63CB /* ShoppingListDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8F1BCF2C624CBA005D63CB /* ShoppingListDetailViewModel.swift */; };
+		BC8F1BDF2C63979F005D63CB /* ShoppingListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8F1BDE2C63979F005D63CB /* ShoppingListCollectionViewCell.swift */; };
+		BC8F1BE12C63C3D0005D63CB /* ShoppingListCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8F1BE02C63C3D0005D63CB /* ShoppingListCollectionViewCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +69,8 @@
 		BC8F1BCB2C6110AF005D63CB /* ShoppingListViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewViewModel.swift; sourceTree = "<group>"; };
 		BC8F1BCD2C6248F0005D63CB /* ShoppingListTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		BC8F1BCF2C624CBA005D63CB /* ShoppingListDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListDetailViewModel.swift; sourceTree = "<group>"; };
+		BC8F1BDE2C63979F005D63CB /* ShoppingListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListCollectionViewCell.swift; sourceTree = "<group>"; };
+		BC8F1BE02C63C3D0005D63CB /* ShoppingListCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +192,7 @@
 				BC8F1BB02C5CCC83005D63CB /* ShoppingListView.swift */,
 				BC8F1BA32C5CC9CC005D63CB /* ShoppingListViewController.swift */,
 				BC8F1BA92C5CCB92005D63CB /* ShoppingListTableViewCell.swift */,
+				BC8F1BDE2C63979F005D63CB /* ShoppingListCollectionViewCell.swift */,
 				BC8F1BB52C5FCA83005D63CB /* ShoppingListDetailViewController.swift */,
 			);
 			path = View;
@@ -241,6 +246,7 @@
 				BC8F1BC92C6105E3005D63CB /* ShoppingListViewModel.swift */,
 				BC8F1BCB2C6110AF005D63CB /* ShoppingListViewViewModel.swift */,
 				BC8F1BCD2C6248F0005D63CB /* ShoppingListTableViewCellViewModel.swift */,
+				BC8F1BE02C63C3D0005D63CB /* ShoppingListCollectionViewCellViewModel.swift */,
 				BC8F1BCF2C624CBA005D63CB /* ShoppingListDetailViewModel.swift */,
 			);
 			path = ViewModel;
@@ -339,10 +345,12 @@
 				BC8F1BCE2C6248F0005D63CB /* ShoppingListTableViewCellViewModel.swift in Sources */,
 				BC8F1BA12C5C9E36005D63CB /* BirthDayViewController.swift in Sources */,
 				BC8F1BB62C5FCA83005D63CB /* ShoppingListDetailViewController.swift in Sources */,
+				BC8F1BDF2C63979F005D63CB /* ShoppingListCollectionViewCell.swift in Sources */,
 				BC8F1BCC2C6110AF005D63CB /* ShoppingListViewViewModel.swift in Sources */,
 				BC8F1B9F2C5C9A61005D63CB /* NextButton.swift in Sources */,
 				BC8F1BC52C60F009005D63CB /* PhoneViewModel.swift in Sources */,
 				BC8F1BAD2C5CCBC3005D63CB /* ReusableIdentifier.swift in Sources */,
+				BC8F1BE12C63C3D0005D63CB /* ShoppingListCollectionViewCellViewModel.swift in Sources */,
 				BC8F1BC72C60FC4B005D63CB /* BirthdayViewModel.swift in Sources */,
 				BC8F1B742C5C6E34005D63CB /* AppDelegate.swift in Sources */,
 				BC8F1BA72C5CCA43005D63CB /* Todo.swift in Sources */,

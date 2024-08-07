@@ -27,7 +27,7 @@ final class ShoppingListViewViewModel {
     func transform(input: Input) -> Output {
         
         var appendList: [Todo]?
-        
+ 
         Observable.combineLatest(input.appendTap, input.title)
             .bind(with: self) { owner, values in
                 guard let title = values.1 else {

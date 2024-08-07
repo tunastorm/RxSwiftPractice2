@@ -39,6 +39,28 @@ final class ShoppingListView: UIView {
         $0.layer.masksToBounds = true
     }
     
+    private let horizontalLayout = {
+        let layout = UICollectionViewFlowLayout()
+        
+        let horizontalCount = CGFloat(5)
+        let verticalCount = CGFloat(1)
+        let lineSpacing = CGFloat(10)
+        let itemSpacing = CGFloat(10)
+        let inset = CGFloat(10)
+        
+        let width = UIScreen.main.bounds.width - (inset * 2) - (itemSpacing * horizontalCount-1)
+        let height = UIScreen.main.bounds.height - 240 - (inset * 2) - (lineSpacing * verticalCount-1)
+        
+//        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        layout.scrollDirection = .horizontal
+        layout.itemSize = CGSize(width: width / horizontalCount,
+                                 height: height / verticalCount)
+        layout.minimumLineSpacing = lineSpacing
+        layout.minimumInteritemSpacing = itemSpacing
+        layout.sectionInset = UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
+        return layout
+    }
+    
     private let tableViewLayout = {
         let layout = UICollectionViewFlowLayout()
         
@@ -59,6 +81,12 @@ final class ShoppingListView: UIView {
         layout.sectionInset = UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
         return layout
     }
+    
+    lazy var horizontalView = {
+        let view = UICollectionView(frame: .zero, collectionViewLayout: horizontalLayout())
+        view.register(ShoppingListCollectionViewCell.self, forCellWithReuseIdentifier: ShoppingListCollectionViewCell.identifier)
+        return view
+    }()
     
     lazy var tableView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: tableViewLayout())
@@ -82,6 +110,7 @@ final class ShoppingListView: UIView {
         addSubview(appendView)
         appendView.addSubview(appendTextFied)
         appendView.addSubview(appendButton)
+        addSubview(horizontalView)
         addSubview(tableView)
     }
     
@@ -90,8 +119,13 @@ final class ShoppingListView: UIView {
             make.height.equalTo(50)
             make.top.horizontalEdges.equalTo(safeAreaLayoutGuide).inset(20)
         }
-        tableView.snp.makeConstraints { make in
+        horizontalView.snp.makeConstraints { make in
             make.top.equalTo(appendView.snp.bottom).offset(12)
+            make.horizontalEdges.equalToSuperview()
+            make.height.equalTo(40)
+        }
+        tableView.snp.makeConstraints { make in
+            make.top.equalTo(horizontalView.snp.bottom)
             make.bottom.horizontalEdges.equalTo(safeAreaLayoutGuide).inset(20)
         }
         appendTextFied.snp.makeConstraints { make in
@@ -110,6 +144,7 @@ final class ShoppingListView: UIView {
     
     private func configureView() {
         backgroundColor = .white
+        horizontalView.showsHorizontalScrollIndicator = false
     }
     
     private func bind() {
@@ -119,7 +154,7 @@ final class ShoppingListView: UIView {
         if let appendList = output.appendList {
             delegate?.fetchTodoListFromView(list: appendList)
         }
-    
+        
         output.searchedList
             .drive(with: self) { owner, list in
             owner.delegate?.fetchTodoListFromView(list: list)
